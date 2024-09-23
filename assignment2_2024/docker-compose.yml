@@ -23,6 +23,6 @@ services:
       - MYSQL_DATABASE=geolife
       - MYSQL_USER=root
       - MYSQL_PASSWORD=group20
-
+    command: tail -f /dev/null
 volumes:
   mysql_data:

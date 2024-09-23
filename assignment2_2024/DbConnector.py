@@ -14,12 +14,12 @@ class DbConnector:
     PASSWORD = "test123" // The password you set for said user
     """
 
-    def __init__(self,
-                 HOST="tdt4225-xx.idi.ntnu.no",
-                 DATABASE="DATABASE_NAME",
-                 USER="TEST_USER",
-                 PASSWORD="test123"):
-        # Connect to the database
+    def __init__(self):
+        # Get database connection details from environment variables
+        HOST = os.environ.get('MYSQL_HOST', 'mysql')
+        DATABASE = os.environ.get('MYSQL_DATABASE', 'geolife')
+        USER = os.environ.get('MYSQL_USER', 'root')
+        PASSWORD = os.environ.get('MYSQL_PASSWORD', 'group20')
         try:
             self.db_connection = mysql.connect(host=HOST, database=DATABASE, user=USER, password=PASSWORD, port=3306)
         except Exception as e:

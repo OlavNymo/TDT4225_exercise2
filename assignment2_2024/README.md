@@ -1,3 +1,23 @@
+# Part 1: Creating and filling in the database
+
+
+
+# Part 2: Querying the database
+Stay in assignment2_2024 and use the following command, which also prints the result for each query:
+
+```sh
+docker-compose exec app python part2.py
+```
+
+To access the mysql environment, in a separate terminal, run the following commands:
+
+```sh
+
+```
+
+
+
+
 # Connecting to Docker Container Shells
 
 This guide provides instructions on how to connect to the shell of your Docker containers for both the `app` and `mysql` services.
@@ -35,3 +55,4 @@ mysql -u root -p
 
 When prompted, enter the MySQL root password (e.g., group20)
 ```
+

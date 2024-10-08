@@ -383,21 +383,21 @@ def main():
     program = None
     try:
         program = ActivityTrackerProgram()
-        # program.drop_table("TrackPoint")
-        # program.drop_table("Activity")
-        # program.drop_table("User")
-        # program.create_tables()
+        program.drop_table("TrackPoint")
+        program.drop_table("Activity")
+        program.drop_table("User")
+        program.create_tables()
         
         dataset_path = 'dataset'  # Replace with actual path
-        # program.populate_user_table(dataset_path)
-        # program.populate_activity_table(dataset_path)
-        # program.populate_trackpoint_table(dataset_path)
+        program.populate_user_table(dataset_path)
+        program.populate_activity_table(dataset_path)
+        program.populate_trackpoint_table(dataset_path)
         
-        # program.fetch_data("User")
-        # program.fetch_data("Activity")
-        # program.show_tables()
+        program.fetch_data("User")
+        program.fetch_data("Activity")
+        program.show_tables()
         
-        # program.update_transportation_modes(dataset_path)
+        program.update_transportation_modes(dataset_path)
         program.verify_transportation_modes(dataset_path)
         
     except Exception as e:

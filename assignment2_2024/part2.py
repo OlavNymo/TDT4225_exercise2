@@ -286,15 +286,15 @@ def main():
     try:
         program = ActivityTrackerProgram()
         
-        # Execute queries
-        # program.count_dataset_elements()
-        # program.average_activities_per_user()
-        # program.top_20_users_by_activity_count()
-        # program.users_who_took_taxi()
-        # program.count_transportation_modes()
-        # program.compare_most_activities_and_hours()
-        # program.calculate_total_walking_distance_2008_user112()
-        # program.top_20_users_by_altitude_gain()
+        #Execute queries
+        program.count_dataset_elements()
+        program.average_activities_per_user()
+        program.top_20_users_by_activity_count()
+        program.users_who_took_taxi()
+        program.count_transportation_modes()
+        program.compare_most_activities_and_hours()
+        program.calculate_total_walking_distance_2008_user112()
+        program.top_20_users_by_altitude_gain()
         program.find_users_with_invalid_activities()
         program.find_users_in_forbidden_city()
         program.find_users_most_used_transportation()

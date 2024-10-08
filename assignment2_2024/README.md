@@ -1,22 +1,32 @@
 # Part 1: Creating and filling in the database
 
+You need `Docker` to run the following scripts. Other requirements are seen in `requirements.txt`. cd to assignment2_2024 and run the following commands to create the database and populate its tables:
 
+```
+docker-compose up -d
+docker-compose exec app python main.py
+```
 
 # Part 2: Querying the database
+
 Stay in assignment2_2024 and use the following command, which also prints the result for each query:
 
-```sh
+```
+docker-compose up -d
 docker-compose exec app python part2.py
 ```
 
 To access the mysql environment, in a separate terminal, run the following commands:
-
-```sh
-
+```
+docker-compose up -d
+docker-compose exec app mysql -p
 ```
 
+Enter the mysql password, which is `group20`. Next, run the following SQL command to access the database:
 
-
+```sql
+USE geolife
+```
 
 # Connecting to Docker Container Shells
 

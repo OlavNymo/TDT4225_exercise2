@@ -145,30 +145,36 @@ class ActivityTrackerProgram:
             print(f"\nThe year with the most activities ({activities_year}) "
                 f"is different from the year with the most recorded hours ({hours_year}).")
         
-    # 7. Total distance walked in 2008 by user with id=112    
+    # 7. Total distance walked in 2008 by user with id=112          
     def calculate_total_walking_distance_2008_user112(self):
         query = """
-        SELECT t.lat, t.lon
+        SELECT a.id AS activity_id, t.lat, t.lon
         FROM TrackPoint t
         JOIN Activity a ON t.activity_id = a.id
         WHERE a.user_id = '112'
-          AND YEAR(a.start_date_time) = 2008
-          AND a.transportation_mode = 'walk'
+        AND YEAR(a.start_date_time) = 2008
+        AND a.transportation_mode = 'walk'
         ORDER BY a.id, t.id
         """
         results = self.execute_query(query)
         
         total_distance = 0
+        current_activity = None
         prev_point = None
-        for lat, lon in results:
+
+        for activity_id, lat, lon in results:
+            if activity_id != current_activity:
+                current_activity = activity_id
+                prev_point = None
+            
             current_point = (lat, lon)
             if prev_point:
                 distance = haversine(prev_point, current_point, unit=Unit.KILOMETERS)
                 total_distance += distance
+            
             prev_point = current_point
 
-        print()
-        print("7. Total distance walked in 2008 by user with id=112:")
+        print("\n7. Total distance walked in 2008 by user with id=112:")
         print(f"   {total_distance:.2f} km")
             
     # 8. Top 20 users who have gained the most altitude meters
@@ -247,7 +253,7 @@ class ActivityTrackerProgram:
         SELECT DISTINCT a.user_id
         FROM Activity a
         JOIN TrackPoint t ON a.id = t.activity_id
-        WHERE ABS(t.lat - 39.916) < 0.001 AND ABS(t.lon - 116.397) < 0.001
+        WHERE ROUND(t.lat,3) == 39.91 AND ROUND(t.lon, 3) = 116.397
         ORDER BY a.user_id
         """
         results = self.execute_query(query)

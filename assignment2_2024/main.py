@@ -388,7 +388,7 @@ def main():
         program.drop_table("User")
         program.create_tables()
         
-        dataset_path = 'dataset'  # Replace with actual path
+        dataset_path = 'dataset' 
         program.populate_user_table(dataset_path)
         program.populate_activity_table(dataset_path)
         program.populate_trackpoint_table(dataset_path)
@@ -409,10 +409,3 @@ def main():
 if __name__ == '__main__':
     main()
     
-    
-#Fjerne første 6 radene i hver aktivitet
-#Fjeren kolonne nummer 3 og 5 i hver aktivitet
-#Kun aktiviteter hvor det er 2500 eller mindre trackpoints
-#use os.walk to walk the folder structure
-#Insert data into the database in batches
-#
